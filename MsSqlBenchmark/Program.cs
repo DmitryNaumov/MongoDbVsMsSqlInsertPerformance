@@ -6,10 +6,10 @@
 
 	class Program
 	{
+		const int NumberOfIterations = 10000;
+
 		static void Main(string[] args)
 		{
-			const int numberOfIterations = 10000;
-
 			const string connectionString = "Data Source=localhost;Initial Catalog=InsertBenchmark;Integrated Security=True";
 
 			using (var connection = new SqlConnection(connectionString))
@@ -20,7 +20,7 @@
 
 			var stopwatch = Stopwatch.StartNew();
 
-			int n = numberOfIterations;
+			int n = NumberOfIterations;
 			while (n-- > 0)
 			{
 				using (var connection = new SqlConnection(connectionString))
@@ -33,7 +33,7 @@
 			}
 
 			Console.WriteLine(stopwatch.Elapsed);
-			Console.WriteLine(numberOfIterations * 1000 / stopwatch.ElapsedMilliseconds);
+			Console.WriteLine(NumberOfIterations * 1000 / stopwatch.ElapsedMilliseconds);
 		}
 	}
 }

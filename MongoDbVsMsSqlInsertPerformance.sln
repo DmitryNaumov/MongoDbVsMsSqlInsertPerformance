@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsSqlBenchmark", "MsSqlBenchmark\MsSqlBenchmark.csproj", "{787F9333-8CB1-42C8-90C5-8AAB795A25B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDbBenchmark", "MongoDbBenchmark\MongoDbBenchmark.csproj", "{8400C063-1AE7-413A-BEEA-1D7C8007DBAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{787F9333-8CB1-42C8-90C5-8AAB795A25B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{787F9333-8CB1-42C8-90C5-8AAB795A25B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{787F9333-8CB1-42C8-90C5-8AAB795A25B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8400C063-1AE7-413A-BEEA-1D7C8007DBAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8400C063-1AE7-413A-BEEA-1D7C8007DBAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8400C063-1AE7-413A-BEEA-1D7C8007DBAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8400C063-1AE7-413A-BEEA-1D7C8007DBAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
