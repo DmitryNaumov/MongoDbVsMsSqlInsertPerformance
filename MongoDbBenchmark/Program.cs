@@ -2,11 +2,12 @@
 {
 	using System;
 	using System.Diagnostics;
+	using System.Linq;
 	using MongoDB.Driver;
 
 	class Program
 	{
-		const int NumberOfIterations = 100;
+		const int NumberOfIterations = 100000;
 
 		static void Main(string[] args)
 		{
@@ -24,11 +25,12 @@
 
 			var stopwatch = Stopwatch.StartNew();
 
-			int n = NumberOfIterations;
-			while (n-- > 0)
+			Enumerable.Range(1, NumberOfIterations).AsParallel().WithDegreeOfParallelism(8).Select(n =>
 			{
 				collection.Insert(new FooBar("foo", "bar"));
-			}
+
+				return n;
+			}).ToArray();
 
 			Console.WriteLine(stopwatch.Elapsed);
 			Console.WriteLine(NumberOfIterations * 1000 / stopwatch.ElapsedMilliseconds);
