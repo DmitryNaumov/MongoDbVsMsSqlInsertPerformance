@@ -44,7 +44,7 @@ namespace MongoDbBenchmark
 			var fsync = new CommandDocument { { "fsync", 1 } };
 			adminDatabase.RunCommand(fsync);
 			
-			Thread.Sleep(5000);
+			Thread.Sleep(1000);
 		}
 	}
 }
