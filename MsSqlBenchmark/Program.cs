@@ -3,10 +3,12 @@
 	using System;
 	using System.Data.SqlClient;
 	using System.Diagnostics;
+	using System.Linq;
 
 	class Program
 	{
-		const int NumberOfIterations = 10000;
+		const int NumberOfThreads = 16;
+		const int NumberOfIterations = 10000 * NumberOfThreads;
 
 		static void Main(string[] args)
 		{
@@ -20,8 +22,7 @@
 
 			var stopwatch = Stopwatch.StartNew();
 
-			int n = NumberOfIterations;
-			while (n-- > 0)
+			Enumerable.Range(1, NumberOfIterations).AsParallel().WithDegreeOfParallelism(NumberOfThreads).Select(n =>
 			{
 				using (var connection = new SqlConnection(connectionString))
 				{
@@ -30,7 +31,9 @@
 					var command = new SqlCommand("INSERT INTO FooBar(Foo, Bar) VALUES('foo', 'bar')", connection);
 					command.ExecuteNonQuery();
 				}
-			}
+
+				return n;
+			}).ToArray();
 
 			Console.WriteLine(stopwatch.Elapsed);
 			Console.WriteLine(NumberOfIterations * 1000 / stopwatch.ElapsedMilliseconds);
